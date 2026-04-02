@@ -9,6 +9,8 @@ const nextConfig = {
   output: 'export',
   trailingSlash: true,
   distDir: 'out',
+  basePath: '/Airco-WebUi',
+  assetPrefix: '/Airco-WebUi/',
 }
 
 export default nextConfig

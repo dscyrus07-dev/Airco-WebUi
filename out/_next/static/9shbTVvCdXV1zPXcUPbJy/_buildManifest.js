@@ -1,7 +1,12 @@
 self.__BUILD_MANIFEST = {
   "__rewrites": {
     "afterFiles": [],
-    "beforeFiles": [],
+    "beforeFiles": [
+      {
+        "source": "/Airco-WebUi//_next/:path+",
+        "destination": "/Airco-WebUi/_next/:path+"
+      }
+    ],
     "fallback": []
   },
   "sortedPages": [
