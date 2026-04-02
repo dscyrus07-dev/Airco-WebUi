@@ -32,12 +32,12 @@ import {
 } from "lucide-react"
 
 const summaryCards = [
-  { label: "Present Today", value: "6", sub: "+1 since yesterday", icon: Users, color: "text-[var(--live)]", bg: "bg-[var(--live-bg)]", trend: "up" },
-  { label: "Absent Today", value: "2", sub: "Sara, Laura", icon: UserX, color: "text-muted-foreground", bg: "bg-muted", trend: "neutral" },
-  { label: "Late Arrivals", value: "1", sub: "Nina Patel - 09:15", icon: Clock, color: "text-[var(--warning)]", bg: "bg-[var(--warning-bg)]", trend: "down" },
-  { label: "Avg Productivity", value: "79%", sub: "+4% from yesterday", icon: TrendingUp, color: "text-primary", bg: "bg-primary/10", trend: "up" },
-  { label: "Active Cameras", value: "8/9", sub: "CAM-05 offline", icon: Camera, color: "text-[var(--live)]", bg: "bg-[var(--live-bg)]", trend: "neutral" },
-  { label: "Footfall Today", value: "34", sub: "Unique entries", icon: Activity, color: "text-primary", bg: "bg-primary/10", trend: "up" },
+  { label: "Present Today", value: "6", sub: "vs yesterday", icon: Users, color: "text-green-600", bgColor: "bg-green-50", borderColor: "border-green-200", trendColor: "text-green-500", trend: "up", trendValue: "+4%" },
+  { label: "Absent Today", value: "2", sub: "vs yesterday", icon: UserX, color: "text-red-600", bgColor: "bg-red-50", borderColor: "border-red-200", trendColor: "text-red-500", trend: "down", trendValue: "-2%" },
+  { label: "Late Arrivals", value: "1", sub: "live tracking", icon: Clock, color: "text-orange-600", bgColor: "bg-orange-50", borderColor: "border-orange-200", trendColor: "text-orange-500", trend: "neutral", trendValue: "" },
+  { label: "Avg Productivity", value: "79%", sub: "vs yesterday", icon: TrendingUp, color: "text-blue-600", bgColor: "bg-blue-50", borderColor: "border-blue-200", trendColor: "text-blue-500", trend: "up", trendValue: "+4%" },
+  { label: "Active Cameras", value: "8/9", sub: "system active", icon: Camera, color: "text-cyan-600", bgColor: "bg-cyan-50", borderColor: "border-cyan-200", trendColor: "text-cyan-500", trend: "neutral", trendValue: "" },
+  { label: "Footfall Today", value: "34", sub: "vs yesterday", icon: Activity, color: "text-purple-600", bgColor: "bg-purple-50", borderColor: "border-purple-200", trendColor: "text-purple-500", trend: "up", trendValue: "+12%" },
 ]
 
 // Define types for different insight details
@@ -749,21 +749,48 @@ export function DashboardPage() {
       </div>
 
       {/* Summary Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-2">
+      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3">
         {summaryCards.map((card) => {
           const Icon = card.icon
           return (
-            <Card key={card.label} className="hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 cursor-pointer">
-              <CardContent className="p-2">
-                <div className="flex items-start justify-between mb-1">
-                  <div className={`size-6 rounded-lg ${card.bg} flex items-center justify-center`}>
-                    <Icon className={`size-3 ${card.color}`} />
+            <Card 
+              key={card.label} 
+              className={cn(
+                "hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer border",
+                card.borderColor,
+                card.bgColor
+              )}
+            >
+              <CardContent className="p-4 h-full">
+                {/* Top Row - Icon and Trend */}
+                <div className="flex items-start justify-between mb-3">
+                  <div className={cn("size-10 rounded-full flex items-center justify-center", card.bgColor)}>
+                    <Icon className={cn("size-5", card.color)} />
                   </div>
-                  {card.trend === "up" && <TrendingUp className="size-2.5 text-[var(--live)]" />}
+                  {card.trendValue && (
+                    <div className={cn(
+                      "flex items-center gap-0.5 text-xs font-semibold",
+                      card.trendColor
+                    )}>
+                      {card.trend === "up" && <TrendingUp className="size-3" />}
+                      {card.trend === "down" && <TrendingUp className="size-3 rotate-180" />}
+                      {card.trendValue}
+                    </div>
+                  )}
                 </div>
-                <p className="text-lg font-bold text-foreground">{card.value}</p>
-                <p className="text-[10px] font-medium text-foreground mt-0.5">{card.label}</p>
-                <p className="text-[9px] text-muted-foreground">{card.sub}</p>
+                
+                {/* Main Value */}
+                <div className="mb-2">
+                  <p className="text-2xl font-bold text-foreground">{card.value}</p>
+                </div>
+                
+                {/* Label */}
+                <div className="mb-1">
+                  <p className="text-sm font-medium text-foreground">{card.label}</p>
+                </div>
+                
+                {/* Subtext */}
+                <p className="text-xs text-muted-foreground">{card.sub}</p>
               </CardContent>
             </Card>
           )
