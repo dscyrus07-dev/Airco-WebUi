@@ -1,7 +1,7 @@
 "use client"
 
-import Image from "next/image"
 import { cn } from "@/lib/utils"
+import { getAssetPath } from "@/lib/assets"
 import {
   LayoutDashboard,
   Video,
@@ -42,8 +42,8 @@ export function Sidebar({ activePage, onNavigate, collapsed, onToggle }: Sidebar
     >
       {/* Logo */}
       <div className={cn("flex items-center h-16 border-b border-sidebar-border px-4 gap-3", collapsed && "justify-center px-0")}>
-        <Image
-          src="/logo.png"
+        <img
+          src={getAssetPath("/logo.png")}
           alt="Air Co Secure"
           width={36}
           height={36}

@@ -7,6 +7,10 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 export const metadata: Metadata = {
   title: 'Air Co Secure – AI Workplace Surveillance Dashboard',
   description: 'Real-time employee tracking, surveillance monitoring, camera dwell analysis, and AI-powered workplace insights',
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 export default function RootLayout({
