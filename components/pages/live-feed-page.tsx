@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { cameras } from "@/lib/mock-data"
+import { getAssetPath } from "@/lib/assets"
 import { LiveBadge } from "@/components/live-badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -75,16 +76,28 @@ export function LiveFeedPage() {
               <div className="relative aspect-video bg-gray-900 flex items-center justify-center">
                 {isLive ? (
                   <>
-                    {/* Simulated camera feed with scanlines effect */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black" />
-                    <div className="absolute inset-0 opacity-5 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(255,255,255,0.1)_2px,rgba(255,255,255,0.1)_4px)]" />
-                    <div className="relative z-10 flex flex-col items-center gap-2 text-gray-500">
-                      <div className="size-8 rounded-full border-2 border-gray-600 flex items-center justify-center">
-                        <Play className="size-4 text-gray-500" />
-                      </div>
-                      <p className="text-xs text-gray-500">Live Preview</p>
-                    </div>
-                    <div className="absolute top-2 left-2 flex items-center gap-1.5">
+                    {cam.video ? (
+                      <video
+                        src={getAssetPath(cam.video)}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="absolute inset-0 size-full object-cover"
+                      />
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black" />
+                        <div className="absolute inset-0 opacity-5 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(255,255,255,0.1)_2px,rgba(255,255,255,0.1)_4px)]" />
+                        <div className="relative z-10 flex flex-col items-center gap-2 text-gray-500">
+                          <div className="size-8 rounded-full border-2 border-gray-600 flex items-center justify-center">
+                            <Play className="size-4 text-gray-500" />
+                          </div>
+                          <p className="text-xs text-gray-500">Live Preview</p>
+                        </div>
+                      </>
+                    )}
+                    <div className="absolute top-2 left-2 flex items-center gap-1.5 z-10">
                       <LiveBadge status="live" />
                     </div>
                     <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">

@@ -503,15 +503,15 @@ export const historicalData = [
 ]
 
 export const cameras = [
-  { id: "CAM-01", name: "Main Gate", location: "Ground Floor", status: "live", zone: "Entrance" },
-  { id: "CAM-02", name: "Side Gate", location: "Ground Floor", status: "live", zone: "Entrance" },
-  { id: "CAM-03", name: "Lobby A", location: "Ground Floor", status: "live", zone: "Common" },
-  { id: "CAM-04", name: "Finance Floor", location: "Floor 1", status: "live", zone: "Restricted" },
-  { id: "CAM-05", name: "Cafeteria", location: "Floor 1", status: "offline", zone: "Common" },
-  { id: "CAM-06", name: "HR Office", location: "Floor 2", status: "live", zone: "Office" },
-  { id: "CAM-07", name: "Ops Room", location: "Floor 2", status: "live", zone: "Office" },
-  { id: "CAM-08", name: "Engineering A", location: "Floor 3", status: "live", zone: "Office" },
-  { id: "CAM-09", name: "Engineering B", location: "Floor 3", status: "live", zone: "Office" },
+  { id: "CAM-01", name: "Main Gate", location: "Ground Floor", status: "live", zone: "Entrance", video: "/videos/cam1.mp4" },
+  { id: "CAM-02", name: "Side Gate", location: "Ground Floor", status: "live", zone: "Entrance", video: "/videos/cam2.mp4" },
+  { id: "CAM-03", name: "Lobby A", location: "Ground Floor", status: "live", zone: "Common", video: "/videos/cam3.mp4" },
+  { id: "CAM-04", name: "Finance Floor", location: "Floor 1", status: "live", zone: "Restricted", video: "/videos/cam4.mp4" },
+  { id: "CAM-05", name: "Cafeteria", location: "Floor 1", status: "offline", zone: "Common", video: "" },
+  { id: "CAM-06", name: "HR Office", location: "Floor 2", status: "live", zone: "Office", video: "/videos/cam5.mp4" },
+  { id: "CAM-07", name: "Ops Room", location: "Floor 2", status: "live", zone: "Office", video: "/videos/cam6.mp4" },
+  { id: "CAM-08", name: "Engineering A", location: "Floor 3", status: "live", zone: "Office", video: "/videos/cam7.mp4" },
+  { id: "CAM-09", name: "Engineering B", location: "Floor 3", status: "live", zone: "Office", video: "/videos/cam8.mp4" },
 ]
 
 export const tickets = [
