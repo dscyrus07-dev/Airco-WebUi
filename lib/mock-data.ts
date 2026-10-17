@@ -507,7 +507,7 @@ export const cameras = [
   { id: "CAM-02", name: "Side Gate", location: "Ground Floor", status: "live", zone: "Entrance", video: "/videos/cam2.mp4" },
   { id: "CAM-03", name: "Lobby A", location: "Ground Floor", status: "live", zone: "Common", video: "/videos/cam3.mp4" },
   { id: "CAM-04", name: "Finance Floor", location: "Floor 1", status: "live", zone: "Restricted", video: "/videos/cam4.mp4" },
-  { id: "CAM-05", name: "Cafeteria", location: "Floor 1", status: "offline", zone: "Common", video: "" },
+  { id: "CAM-05", name: "Cafeteria", location: "Floor 1", status: "live", zone: "Common", video: "/videos/cam9.mp4" },
   { id: "CAM-06", name: "HR Office", location: "Floor 2", status: "live", zone: "Office", video: "/videos/cam5.mp4" },
   { id: "CAM-07", name: "Ops Room", location: "Floor 2", status: "live", zone: "Office", video: "/videos/cam6.mp4" },
   { id: "CAM-08", name: "Engineering A", location: "Floor 3", status: "live", zone: "Office", video: "/videos/cam7.mp4" },

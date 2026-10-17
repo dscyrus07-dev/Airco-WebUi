@@ -74,7 +74,7 @@ const todaySummaryCards = [
   { label: "Absent Today", value: String(employees.length - presentCount), sub: absentNames, icon: UserX, color: "text-muted-foreground", bg: "bg-muted", trend: "neutral" },
   { label: "Late Arrivals", value: String(dailyReport.filter((r) => r.status === "Late").length), sub: lateNames, icon: Clock, color: "text-[var(--warning)]", bg: "bg-[var(--warning-bg)]", trend: "down" },
   { label: "Avg Productivity", value: `${avgProductivity}%`, sub: "+4% from yesterday", icon: TrendingUp, color: "text-primary", bg: "bg-primary/10", trend: "up" },
-  { label: "Active Cameras", value: "8/9", sub: "CAM-05 offline", icon: Camera, color: "text-[var(--live)]", bg: "bg-[var(--live-bg)]", trend: "neutral" },
+  { label: "Active Cameras", value: "9/9", sub: "all cameras live", icon: Camera, color: "text-[var(--live)]", bg: "bg-[var(--live-bg)]", trend: "neutral" },
   { label: "Footfall Today", value: String(presentCount + unknownPersons.length), sub: "Unique entries", icon: Activity, color: "text-primary", bg: "bg-primary/10", trend: "up" },
 ]
 
